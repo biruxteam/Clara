@@ -37,7 +37,7 @@ class Router {
                     }
                     die();
                 } else {
-                require_once "views/".$route["page"];
+                require_once "views/pages/".$route["page"];
                 die();
                 }
             }

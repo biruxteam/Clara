@@ -8,7 +8,9 @@ class Router {
     public static function page($uri, $page_name) {
         self::$list[] = [
             "uri" => $uri,
-            "page" => $page_name
+            "page" => $page_name,
+            "static" => true,
+            "type" => $type
         ];
     }
 
@@ -36,8 +38,12 @@ class Router {
                         $action->$method();
                     }
                     die();
+                } else if ($route["static"] === "true") {
+                    if ($route["type"] === "js") {
+                        echo "<script src='".$route["page"]."'></script>";
+                    }
                 } else {
-                require_once "views/pages/".$route["page"];
+                require_once "views/".$route["page"];
                 die();
                 }
             }

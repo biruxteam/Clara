@@ -8,9 +8,7 @@ class Router {
     public static function page($uri, $page_name) {
         self::$list[] = [
             "uri" => $uri,
-            "page" => $page_name,
-            "static" => true,
-            "type" => $type
+            "page" => $page_name
         ];
     }
 
@@ -38,10 +36,6 @@ class Router {
                         $action->$method();
                     }
                     die();
-                } else if ($route["static"] === "true") {
-                    if ($route["type"] === "js") {
-                        echo "<script src='".$route["page"]."'></script>";
-                    }
                 } else {
                 require_once "views/".$route["page"];
                 die();
@@ -54,7 +48,7 @@ class Router {
 
     
     private static function notfound() {
-        require_once "views/pages/Errors/404.php";
+        require_once $_SERVER['DOCUMENT_ROOT']."/views/pages/Errors/404.php";
     }
 
 }

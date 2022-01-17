@@ -5,6 +5,10 @@
         }
     },
     "require": {
-        "vlucas/phpdotenv": "^5.4"
+        "vlucas/phpdotenv": "^5.4",
+        "symfony/yaml": "^5.4",
+        "symfony/twig-pack": "^1.0",
+        "symfony/error-handler": "^5.4",
+        "tracy/tracy": "^2.9"
     }
 }
